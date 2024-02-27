@@ -25,12 +25,20 @@ export default {
       zoom: 3,
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       location: [0, 0],
-      ipAddress: "192.168.0.254", // IP padrão
+      ipAddress: "", // IP padrão
     };
   },
   methods: {
     async getLocation() {
       try {
+        axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
+        axios.defaults.headers.common["Access-Control-Allow-Methods"] =
+          "GET, POST, PUT, DELETE";
+        axios.defaults.headers.common["Access-Control-Allow-Headers"] =
+          "Access-Control-Allow-Methods, Access-Control-Allow-Origin, Origin, Accept, Content-Type";
+        axios.defaults.headers.common["Content-Type"] = "application/json";
+        axios.defaults.headers.common["Accept"] = "application/json";
+
         const apiKey = "88391B33F85CFDED27A7FABA3E1F1ED6";
 
         const response = await axios.get(
