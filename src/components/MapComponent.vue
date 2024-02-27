@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="divprincipal">
     <input type="text" v-model="ipAddress" placeholder="Digite o endereço IP" />
     <button @click="getLocation()">Buscar Localização</button>
     <l-map :center="center" :zoom="zoom" class="tamanhomapa">
@@ -22,10 +22,10 @@ export default {
   data() {
     return {
       center: [0, 0],
-      zoom: 20,
+      zoom: 3,
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       location: [0, 0],
-      ipAddress: "", // IP padrão
+      ipAddress: "192.168.0.254", // IP padrão
     };
   },
   methods: {
@@ -49,7 +49,11 @@ export default {
 
 <style scoped>
 .tamanhomapa {
-  height: 50px;
-  weight: 50px;
+  margin-top: 40px;
+  height: 800px;
+}
+
+.divprincipal {
+  margin-top: 20px;
 }
 </style>
